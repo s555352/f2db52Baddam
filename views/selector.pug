@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  - var image_names = ["LAKE_DUCK.jpg", "LANNER_FALCON.jpg", "LARK_SPARROW.jpg", "LAZULI_BUNTING.jpg", "LEMON_DOVE.jpg"];
+    - for(let i = 0; i < 3; i++) {
+        - let ranValue = Math.floor(Math.random() * 5);
+        img(src=`/images/${image_names[ranValue]}`, alt="Bird Image", height = '300', width = '300')
+    - }
