@@ -3,7 +3,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('Bird', { title: 'Search Results Bird' });
+  res.render('bird', { title: 'Search Results bird' });
 });
-
+var express = require('express');
+const bird_controllers= require('../controllers/bird');
+var router = express.Router();
+/* GET costumes */
+router.get('/', bird_controllers.bird_view_all_Page );
 module.exports = router;
