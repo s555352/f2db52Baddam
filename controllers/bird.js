@@ -53,7 +53,7 @@ exports.bird_create_post = async function(req, res) {
     // and require that it be a json object
     // {"costume_type":"goat", "cost":12, "size":"large"}
     document.birdName = req.body.birdName;
-    document.birdWeight = req.birdWeight;
+    document.birdWeight = req.body.birdWeight;
     document.birdColor = req.body.birdColor;
     try{
     let result = await document.save();
