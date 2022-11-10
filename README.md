@@ -1,6 +1,2 @@
-# f2wb52Baddam
-https://f2wb52baddam.onrender.com
-
-Class : Bird
-
-Attributes : BirdName(String), BirdWeight(number), BirdColor(String)
+# f2db52Baddam
+https://f2db52baddam.onrender.com
