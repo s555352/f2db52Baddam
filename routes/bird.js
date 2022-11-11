@@ -10,4 +10,7 @@ const bird_controllers= require('../controllers/bird');
 var router = express.Router();
 /* GET costumes */
 router.get('/', bird_controllers.bird_view_all_Page );
+// GET request for one costume. 
+router.get('/bird/:id', bird_controllers.bird_detail); 
+ 
 module.exports = router;
