@@ -13,4 +13,11 @@ router.get('/', bird_controllers.bird_view_all_Page );
 // GET request for one costume. 
 router.get('/bird/:id', bird_controllers.bird_detail); 
  
+
+/* GET detail costume page */ 
+router.get('/detail', bird_controllers.bird_view_one_Page); 
+
+
+
+
 module.exports = router;

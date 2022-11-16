@@ -21,9 +21,21 @@ exports.bird_create_post = function(req, res) {
  res.send('NOT IMPLEMENTED: bird create POST');
 };
 // Handle Costume delete form on DELETE.
-exports.bird_delete = function(req, res) {
- res.send('NOT IMPLEMENTED: bird delete DELETE ' + req.params.id);
-};
+//exports.bird_delete = function(req, res) {
+ //res.send('NOT IMPLEMENTED: bird delete DELETE ' + req.params.id);
+//};
+// Handle Costume delete on DELETE. 
+exports.bird_delete = async function(req, res) { 
+    console.log("delete "  + req.params.id) 
+    try { 
+        result = await bird.findByIdAndDelete( req.params.id) 
+        console.log("Removed " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": Error deleting ${err}}`); 
+    } 
+}; 
 
 // VIEWS
 
@@ -88,5 +100,19 @@ ${JSON.stringify(req.body)}`)
         res.status(500) 
         res.send(`{"error": ${err}: Update for id ${req.params.id} 
 failed`); 
+    } 
+}; 
+
+// Handle a show one view with id specified by query 
+exports.bird_view_one_Page = async function(req, res) { 
+    console.log("single view for id "  + req.query.id) 
+    try{ 
+        result = await bird.findById( req.query.id) 
+        res.render('birddetail',  
+{ title: 'bird Detail', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
     } 
 }; 

@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let birdid = toShow._id 
+  - let birdName = toShow.birdName 
+  - let birdWeight = toShow.birdWeight 
+  - let birdCost = toShow.birdCost 
+  div 
+    div.row 
+    div(class='birdAttr mr-3') bird ID is: 
+    div #{birdid} 
+    div.row 
+    div(class='birdAttr mr-3') bird Name is: 
+    div #{birdName} 
+    div.row 
+    div(class='birdAttr mr-3') bird Weight is: 
+    div #{birdWeight} 
+    div.row 
+    div(class='birdAttr mr-3') bird Cost is: 
+    div #{birdCost} 
