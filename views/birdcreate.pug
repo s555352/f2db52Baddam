@@ -1,20 +1,28 @@
 extends layout 
- 
+
 block content 
-  h1= title 
- 
-  form(id='birdForm', action="/resource/bird", method="POST") 
-    div.form-group 
-        label.birdAttr(for='birdName') bird name 
-        input#birdName(type='text', name='birdName') 
-    div.form-group 
-        label.birdAttr(for='birdWeight') bird weight 
-        input#birdWeight(type='number', name='birdWeight') 
-    div.form-group 
-        label.birdAttr(for='birdColor') bird color 
-        input#birdColor(type='text', name='birdColor') 
-    input(type="submit") 
- 
+  div(class='container', style='border: 2px solid #2192FF; width: 450px;')
+    h1(style="text-align: center; color: #FF1E1E")= title 
+    br
+    div(class='container' style="text-align: center; width: 450px;")
+      form(id='birdForm', action="/resource/bird", method="POST") 
+        div.form-group 
+          div(class="form-group row mb-2") 
+            label.birdAttr(for='birdName', class='col-4 col-from-label') birdName 
+            div(class='col-6' style='width: 250px;')
+              input#costume_type(class='form-control form-control-sm', type='text', name='birdName') 
+        div.form-group 
+          div(class="form-group row mb-2") 
+            label.birdAttr(for='birdWeight', class='col-4 col-from-label') birdWeight 
+            div(class='col-6' style='width: 250px;')
+              input#birdWeight(class='form-control form-control-sm', type='number', name='birdWeight', step='any') 
+        div.form-group
+          div(class="form-group row mb-2")  
+            label.birdAttr(for='mainIngredient', class='col-4 col-from-label') birdColor
+            div(class='col-6' style='width: 250px;')
+              input#birdColor(class='form-control form-control-sm',  type='text', name='birdColor') 
+        input(class='btn btn-outline-success' type="submit" style='width: 150px; margin: 6px;') 
+
   script. 
     document.forms['birdForm'].addEventListener('submit', (event) => { 
       event.preventDefault(); 

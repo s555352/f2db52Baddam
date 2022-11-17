@@ -1,0 +1,48 @@
+extends layout 
+
+block content 
+  div.container(style='border: 2px solid #001253; width: 450px;')
+    h1(style="text-align: center; color: red;")= title 
+    br
+    - let birdId = toShow._id
+    - let birdName = toShow.birdName 
+    - let birdWeight = toShow.birdWeight 
+    - let birdColor = toShow.birdColor
+
+    div(class='container' style="text-align: center; width: 450px;")
+      div.row(class='mb-2') 
+        div(class='birdAttr col-4') ID is 
+        div(class='data col-6') #{birdId} 
+      - let actionid = "/resource/bird/" + birdId
+      form(id='birdForm', action=actionid, method="PUT") 
+        div(class="form-group row mb-2") 
+            label.birdAttr(for='birdName', class='col-4 col-from-label') birdName 
+            div(class='col-6' style='width: 250px;')
+              input#birdName(class='form-control', type='text', name='birdName', value=`${birdName}`) 
+        div(class="form-group row mb-2") 
+            label.birdAttr(for='birdWeight', class='col-4 col-from-label') birdWeight
+            div(class='col-6' style='width: 250px;') 
+              input#birdWeight(class='form-control', type='number', name='birdWeight', step='any', value=`${birdWeight}`) 
+        div(class="form-group row mb-2") 
+            label.birdAttr(for='birdColor', class='col-4 col-from-label') birdColor
+            div(class='col-6' style='width: 250px;')
+              input#birdColor(class='form-control' type='text', name='birdColor', value=`${birdColor}`) 
+        input(class='btn btn-success' type="submit" style='width: 150px; margin: 6px;') 
+ 
+  script. 
+    document.forms['birdForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Save succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Save failed " + error ) 
+      }); 
+    }); 

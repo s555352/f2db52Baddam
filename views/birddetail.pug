@@ -1,22 +1,23 @@
 extends layout 
  
 block content 
-  h1= title 
- 
-  - let birdid = toShow._id 
-  - let birdName = toShow.birdName 
-  - let birdWeight = toShow.birdWeight 
-  - let birdColor = toShow.birdColor
-  div 
-    div.row 
-    div(class='birdAttr mr-3') bird ID is: 
-    div #{birdid} 
-    div.row 
-    div(class='birdAttr mr-3') bird Name is: 
-    div #{birdName} 
-    div.row 
-    div(class='birdAttr mr-3') bird Weight is: 
-    div #{birdWeight} 
-    div.row 
-    div(class='birdAttr mr-3') bird Color is: 
-    div #{birdColor} 
+  div(class='container', style='border: 2px solid #001253; width: 450px;')
+    h1(style="text-align: center; color: #54B435")= title 
+    br
+    - let birdId = toShow._id 
+    - let birdName = toShow.birdName 
+    - let birdWeight = toShow.birdWeight 
+    - let birdColor = toShow.birdColor 
+    div(class='container' style="text-align: center; width: 500px;")
+      div(class='row mb-3')
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') bird ID 
+        div(class='birdAttr detailData col-6' style='color: white;') #{birdId} 
+      div(class='row mb-3')
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') birdName
+        div(class='birdAttr detailData col-6' style='color: white;') #{birdName} 
+      div(class='row mb-3') 
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') birdWeight 
+        div(class='birdAttr detailData col-6' style='color: white;') #{birdWeight} 
+      div(class='row mb-3')
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') birdColor 
+        div(class='birdAttr detailData col-6' style='color: white;') #{birdColor}
