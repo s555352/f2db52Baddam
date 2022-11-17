@@ -17,7 +17,8 @@ router.get('/bird/:id', bird_controllers.bird_detail);
 /* GET detail costume page */ 
 router.get('/detail', bird_controllers.bird_view_one_Page); 
 
-
+/* GET create costume page */ 
+router.get('/create', bird_controllers.bird_create_Page); 
 
 
 module.exports = router;
