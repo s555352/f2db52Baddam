@@ -25,6 +25,7 @@ router.get('/update', bird_controllers.bird_update_Page);
 
 /* GET delete costume page */
 router.get('/delete', bird_controllers.bird_delete_Page);
+router.get('/bird/:id', bird_controlers.bird_detail);
 
 
 module.exports = router;

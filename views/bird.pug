@@ -11,8 +11,12 @@ block content
                         div(class='card', style='width: 17rem;')
                             div(class='card-body')
                                 - let destination = `dispatch(\"/bird/update?id=${item._id}\")`
+                                - let destinationdelete = `dispatch(\"/bird/delete?id=${item._id}\")`
+                                - let destinationdetail = `dispatch(\"/bird/detail?id=${item._id}\")`
                                 div(class='card-text', onclick=`buy(${index})`) birdName: #{item["birdName"]}  <br>  birdWeight: #{item["birdWeight"]} <br> birdColor: #{item["birdColor"]}
                                 button.btn(class="btn-primary btn-sm ml-1", style="margin: 5px; width: 130px;", onclick= destination) Update
+                                button.btn( class="btn-primary ml-1", style="margin: 5px; width: 130px;", onclick= destinationdelete) Delete
+                                button.btn( class="btn-primary ml-1", style="margin: 5px; width: 130px;", onclick= destinationdetail) Detail
   script.
       function buy(index){
          alert("you purchased item "+(index+1))
